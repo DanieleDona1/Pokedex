@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="color.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="template.js"></script>
+    <script src="script.js"></script>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+  </head>
+  <body onload="onloadfunc();">
+    <div class="loadContainer" id="loadContainer">
+      <img
+        class="loadSpinner"
+        src="./img/loadingSpinner.png"
+        alt="Lade-Spinner"
+        class="spinner"
+      /><span>... loading</span>
+    </div>
+    <header>
+      <div id="searchbar" class="searchbar">
+        <b>Daniele's Pokédex</b>
+        <input
+          minlength="3"
+          type="search"
+          id="search"
+          class="search"
+          placeholder="🔍 search pokemon"
+          oninput="filterPokemon()"
+          required
+        />
+        <div id="inputMessage" class="inputMessage">
+          <b>Minimum 3 characters!</b>
+        </div>
+      </div>
+    </header>
+
+    <div class="max-width-1920">
+      <main id="myPokedex"></main>
+      <section id="searchResults" class="searchResults"></section>
+      <section
+        onclick="closeDialog()"
+        id="detailViewDialog"
+        class="dialog_bg dNone"
+      ></section>
+    </div>
+    <footer id="footer">
+      <button id="btnFooter" class="btnFooter" onclick="loadMore()">
+        LOAD MORE
+      </button>
+    </footer>
+  </body>
+</html>

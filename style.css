@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: rgb(30, 50, 100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.max-width-1920 {
+  max-width: 1920px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  padding: 24px;
+  background-color: rgb(86, 86, 86);
+  height: 200px;
+  padding-top: 54px;
+  padding-left: 70px;
+  box-shadow: -1px 3px 4px -1px rgba(0, 0, 0, 0.3);
+
+  background-image: url("./img/pokemon_bg.jpg"); /* Pfad zum Hintergrundbild */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+header .searchbar {
+  width: 100%;
+  max-width: 350px;
+  padding: 30px;
+}
+
+header input {
+  height: 55px;
+  width: 100%;
+  padding: 0px 20px;
+  max-width: 300px;
+  background-color: rgb(170, 171, 171);
+
+  font-size: 22px;
+  border: 3px solid #575757;
+  outline-color: transparent;
+}
+
+header input:hover {
+  background-color: rgb(254, 254, 254);
+}
+
+header .inputMessage {
+  color: transparent;
+  display: flex;
+}
+
+header .inputMessage b {
+  background-color: rgba(255, 255, 255, 0.651);
+}
+
+.search::placeholder {
+  color: #010000;
+}
+
+.searchbar b {
+  background-color: #ffffffa6;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h2 {
+  margin-top: 12px;
+}
+
+.card {
+  min-height: 520px;
+  min-width: 160px;
+  max-width: 280px;
+  margin: 20px 11px;
+  padding: 0 16px;
+  border-width: 12px 9px;
+  border-style: solid;
+  border-color: rgb(221, 221, 53);
+  border-radius: 16px;
+
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cardJump:hover {
+  transform: translateY(-5px); /* Bewegt das Bild leicht nach oben */
+}
+
+.cardImg {
+  width: 100%;
+  max-width: 300px;
+  border: 7px solid;
+  border-image: linear-gradient(
+      to left top,
+      rgb(225, 224, 120),
+      rgb(221, 221, 53),
+      rgb(193, 193, 8)
+    )
+    1;
+  margin: 5px 0px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  background-color: rgb(255, 255, 255);
+}
+
+.d_flex_ce_ce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemonstyp {
+  display: flex;
+  gap: 8px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.typeImg1Container,
+.typeImg2Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.typeImg1,
+.typeImg2 {
+  border: 3px solid white;
+  border-radius: 50%;
+  width: 30px;
+}
+
+.typeText1,
+.typeText2 {
+  color: transparent;
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: color 0.3s;
+  pointer-events: none;
+}
+
+.typeImg1Container:hover .typeText1,
+.typeImg2Container:hover .typeText2 {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dialog_bg {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.loadContainer {
+  background-color: rgba(0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  height: 100vh;
+}
+
+.loadSpinner {
+  width: 250px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.searchResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pkmDescription {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btnPrimary {
+  display: flex;
+  justify-content: center;
+  /* neu  */
+  position: absolute;
+  bottom: 16px;
+  left: 0px;
+  right: 0px;
+}
+
+.btnMoreDetails {
+  background-color: hwb(0 100% 10%);
+  border-width: 3px;
+  outline-color: transparent;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btnMoreDetails:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 0px;
+  gap: 10px;
+}
+
+.navigation button {
+  outline-color: transparent;
+  border: 5px solid #00000000;
+  flex: 1;
+  cursor: pointer;
+  padding: 4px 0;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navigation button:hover {
+  border: 5px solid rgb(221, 221, 53);
+  transform: scale(1.03);
+}
+
+.detailCard {
+  width: 100%;
+  max-width: 600px;
+  max-height: 700px;
+  /* min-height: 700px; */
+  min-height: 500px;
+  padding: 0 0 16px 0;
+}
+
+.detailCard img {
+  border: 0px solid;
+}
+
+.evochainCharacteristics {
+  display: flex;
+
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.evoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+  cursor: pointer;
+}
+
+.evoImg {
+  background-color: transparent;
+  max-width: 130px;
+  width: 100%;
+}
+
+.arrowImgLeft,
+.arrowImgRight {
+  position: absolute;
+  cursor: pointer;
+  max-width: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrowImgLeft {
+  left: 0;
+  padding: 10px 10px 10px 0px;
+}
+.arrowImgRight {
+  right: 0px;
+  padding: 10px 0px 10px 10px;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  margin-top: 12px;
+  position: relative;
+}
+
+.viewCharacteristics {
+  margin-top: 16px;
+  background-color: aliceblue;
+  padding: 18px 12px;
+  border-radius: 16px;
+}
+
+.mainCharacteristicsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mainCharacteristics {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+.mainCharacteristics div {
+  flex: 1;
+}
+
+.detailInfoContainer {
+  margin-top: 30px;
+  padding: 0 32px;
+}
+
+.progressContainer {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.progressContainer p {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.evoImg {
+  width: 110px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0px;
+}
+.btnFooter {
+  font-weight: bold;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.xMark {
+  cursor: pointer;
+  width: 30px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.xMark:hover {
+  background-color: rgba(255, 0, 0, 0.747);
+}
+
+.dNone {
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+  .detailInfoContainer {
+    padding: 0px 0px;
+    margin-top: 8px;
+  }
+  .evoImg{
+    width: 75px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .detailCard {
+    max-height: 650px;
+    min-height: 620px;
+  }
+  .viewCharacteristics {
+
+    padding: 8px 12px;
+  }
+}
