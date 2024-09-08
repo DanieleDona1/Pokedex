@@ -197,19 +197,6 @@ async function loadPokemonEvoChain(currentPokemon) {
   addFirstEvoId(evolutionChainAsJson);
   addSecondEvoId(evolutionChainAsJson);
   addThirdEvoId(evolutionChainAsJson);
-
-  showEvo();
-}
-
-function showEvo() {
-  document.getElementById("mainCharacteristicsContainer").innerHTML = "";
-  document.getElementById("statsCharacteristics").innerHTML = "";
-  document.getElementById("evochainCharacteristics").innerHTML = "";
-
-  for (let j = 0; j < evolutionChainId.length; j++) {
-    document.getElementById("evochainCharacteristics").innerHTML +=
-      evoTemplate(j);
-  }
 }
 
 async function getEvoulutionChainAsJson(currentPokemon) {
@@ -248,6 +235,17 @@ function addThirdEvoId(evolutionChainAsJson) {
 function getUrlId(url) {
   const parts = url.split("/");
   return parts[parts.length - 2];
+}
+
+function showEvo() {
+  document.getElementById("mainCharacteristicsContainer").innerHTML = "";
+  document.getElementById("statsCharacteristics").innerHTML = "";
+  document.getElementById("evochainCharacteristics").innerHTML = "";
+
+  for (let j = 0; j < evolutionChainId.length; j++) {
+    document.getElementById("evochainCharacteristics").innerHTML +=
+      evoTemplate(j);
+  }
 }
 
 function sanitizeDescription(text) {

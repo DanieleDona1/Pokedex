@@ -26,7 +26,7 @@ function generateCardTemplate(i) {
         </div>
   
         <div class="pkmDescription">${descriptionText}</div>
-        <div class="btnPrimary"><button id="btnMoreDetails" class="btnMoreDetails" onclick="openPokemonDetails(${i});">More Details</button>
+        <div class="btnPrimary"><button id="btnMoreDetails" class="btnMoreDetails" onclick="openPokemonDetails(${i}); loadPokemonEvoChain(${i});">More Details</button>
             </div>
         </div>
         `;
@@ -54,7 +54,7 @@ function generateDetailCardTemplate(i) {
           <div class="navigation">
             <button onclick="showMain(${i})">main</button>
             <button onclick="showStats(${i})">stats</button>
-            <button onclick="loadPokemonEvoChain(${i})">evo chain</button>
+            <button onclick="showEvo()">evo chain</button>
         </div>
         <div class="viewCharacteristics">
             <div class="mainCharacteristicsContainer" id="mainCharacteristicsContainer"></div>
