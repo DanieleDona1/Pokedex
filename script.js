@@ -13,30 +13,14 @@ const PKMDESCRIPTION_URL = "https://pokeapi.co/api/v2/pokemon-species/";
 async function loadAndShowPkm() {
   onLoadingSpinner();
 
-  let endLoadValue = startLoadPokemons + 10;
+  let endLoadValue = startLoadPokemons + 20;
 
   const pkmResponseAsJson = await loadPokemons(startLoadPokemons, endLoadValue);
-  descriptionResponseAsJson = await loadDescriptions(
-    startLoadPokemons,
-    endLoadValue
-  );
-
   pokemons.push(...createJsonObject(pkmResponseAsJson));
-
-  descriptionObject.push(...createDescriptionObject(descriptionResponseAsJson));
-
   render();
+  offLoadingSpinner();
+  renderDescription(startLoadPokemons, endLoadValue);
   startLoadPokemons = endLoadValue;
-}
-
-function createDescriptionObject(descriptionArray) {
-  return descriptionArray.map((data) => {
-    return {
-      description:
-        data?.flavor_text_entries?.[2]?.flavor_text ||
-        "No description available",
-    };
-  });
 }
 
 async function loadPokemons(start, end) {
@@ -48,17 +32,6 @@ async function loadPokemons(start, end) {
     pkmPromises.push(response.json());
   }
   return await Promise.all(pkmPromises);
-}
-
-async function loadDescriptions(start, end) {
-  let descriptionPromises = [];
-
-  for (let i = start + 1; i <= end; i++) {
-    const description_URL = PKMDESCRIPTION_URL + `${i}`;
-    let descriptionResponse = await fetch(description_URL);
-    descriptionPromises.push(descriptionResponse.json());
-  }
-  return await Promise.all(descriptionPromises);
 }
 
 function onLoadingSpinner() {
@@ -112,12 +85,47 @@ function render() {
   for (let i = startLoadPokemons; i < pokemons.length; i++) {
     myPokedex.innerHTML += generateCardTemplate(i);
   }
-  offLoadingSpinner();
 }
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+async function renderDescription(startLoadPokemons, endLoadValue) {
+  descriptionResponseAsJson = await loadDescriptions(
+    startLoadPokemons,
+    endLoadValue
+  );
+  descriptionObject.push(...createDescriptionObject(descriptionResponseAsJson));
+
+  for (let i = startLoadPokemons; i < descriptionObject.length; i++) {
+    document.getElementById(
+      `pkmDescription${i}`
+    ).innerHTML = `<div>${descriptionObject[i].description}</div>`;
+  }
+}
+
+async function loadDescriptions(start, end) {
+  let descriptionPromises = [];
+
+  for (let i = start + 1; i <= end; i++) {
+    const description_URL = PKMDESCRIPTION_URL + `${i}`;
+    let descriptionResponse = await fetch(description_URL);
+    descriptionPromises.push(descriptionResponse.json());
+  }
+  return await Promise.all(descriptionPromises);
+}
+
+function createDescriptionObject(descriptionArray) {
+  return descriptionArray.map((data) => {
+    const description =
+      data?.flavor_text_entries?.[2]?.flavor_text || "No description available";
+
+      return {
+        description: sanitizeDescription(description),
+      };
+    });
+  }
 
 function openPokemonDetails(i) {
   document.getElementById("detailViewDialog").classList.remove("dNone");

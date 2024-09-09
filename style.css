@@ -119,6 +119,30 @@ h2 {
   background-color: rgb(255, 255, 255);
 }
 
+.skeleton {
+  width: 100%; /* Breite des Skeletons */
+  margin: 10px auto;
+}
+
+.skeleton-text-line {
+  height: 15px; /* Höhe der Textzeile */
+  background-color: #e0e0e0; /* Hintergrundfarbe für das Skeleton */
+  margin: 10px 0; /* Abstand zwischen den Zeilen */
+  border-radius: 4px; /* Abgerundete Ecken */
+  animation: shimmer 1.5s infinite; /* Animation hinzufügen */
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200px 100%; /* Größe des Schimmerhintergrunds */
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: -100px 0; /* Startposition */
+  }
+  100% {
+      background-position: 100px 0; /* Endposition */
+  }
+}
+
 .d_flex_ce_ce {
   display: flex;
   justify-content: center;

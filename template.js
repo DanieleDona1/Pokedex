@@ -1,6 +1,5 @@
 function generateCardTemplate(i) {
   let pokemonName = capitalizeFirstLetter(pokemons[i].name);
-  let descriptionText = sanitizeDescription(descriptionObject[i].description);
   return /*html*/ `
       <div class="card bg_${pokemons[i].type} cardJump">
         <div class="d_flex_ce_ce">
@@ -25,7 +24,14 @@ function generateCardTemplate(i) {
         }
         </div>
   
-        <div class="pkmDescription">${descriptionText}</div>
+        <div class="pkmDescription" id="pkmDescription${i}">
+        <div class="skeleton">
+            <div class="skeleton-text-line"></div>
+            <div class="skeleton-text-line"></div>
+            <div class="skeleton-text-line"></div>
+        </div>
+        </div>
+
         <div class="btnPrimary"><button id="btnMoreDetails" class="btnMoreDetails" onclick="openPokemonDetails(${i}); loadPokemonEvoChain(${i});">More Details</button>
             </div>
         </div>
