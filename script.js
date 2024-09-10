@@ -1,7 +1,8 @@
 let pokemons = [];
 let descriptionObject = [];
-let startLoadPokemons = 0;
 let evolutionChainId = [];
+let startLoadPokemons = 0;
+let loadBatchSize = 20;
 
 async function onloadfunc() {
   await loadAndShowPkm();
@@ -13,7 +14,7 @@ const PKMDESCRIPTION_URL = "https://pokeapi.co/api/v2/pokemon-species/";
 async function loadAndShowPkm() {
   onLoadingSpinner();
 
-  let endLoadValue = startLoadPokemons + 20;
+  let endLoadValue = startLoadPokemons + loadBatchSize;
 
   const pkmResponseAsJson = await loadPokemons(startLoadPokemons, endLoadValue);
   pokemons.push(...createJsonObject(pkmResponseAsJson));
@@ -81,8 +82,9 @@ function statsObject(data) {
 }
 
 function render() {
-  let myPokedex = document.getElementById("myPokedex");
-  for (let i = startLoadPokemons; i < pokemons.length; i++) {
+  const pokemonsLength = pokemons.length;
+  const myPokedex = document.getElementById("myPokedex");
+  for (let i = startLoadPokemons; i < pokemonsLength; i++) {
     myPokedex.innerHTML += generateCardTemplate(i);
   }
 }
@@ -98,10 +100,9 @@ async function renderDescription(startLoadPokemons, endLoadValue) {
   );
   descriptionObject.push(...createDescriptionObject(descriptionResponseAsJson));
 
-  for (let i = startLoadPokemons; i < descriptionObject.length; i++) {
-    document.getElementById(
-      `pkmDescription${i}`
-    ).innerHTML = `<div>${descriptionObject[i].description}</div>`;
+  const descriptionLength = descriptionObject.length;
+  for (let i = startLoadPokemons; i < descriptionLength; i++) {
+    document.getElementById(`pkmDescription${i}`).innerHTML = `<div>${descriptionObject[i].description}</div>`;
   }
 }
 
@@ -155,12 +156,16 @@ function processSearchResults(input) {
   document.getElementById("inputMessage").style.color = "transparent";
   document.getElementById("btnFooter").disabled = true;
 
+  let foundResults = false;
+
   for (let i = 0; i < pokemons.length; i++) {
     if (pokemons[i].name.includes(input)) {
-      document.getElementById("myPokedex").classList.add("dNone");
-      document.getElementById("searchResults").classList.remove("dNone");
-      document.getElementById("searchResults").innerHTML +=
-        generateCardTemplate(i);
+      if (!foundResults) { 
+        document.getElementById("myPokedex").classList.add("dNone");
+        document.getElementById("searchResults").classList.remove("dNone");
+        foundResults = true;
+      }
+      document.getElementById("searchResults").innerHTML += generateCardTemplate(i); // Füge das Ergebnis hinzu
     }
   }
 }

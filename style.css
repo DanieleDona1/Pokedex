@@ -224,7 +224,7 @@ h2 {
 }
 
 .loadSpinner {
-  width: 250px;
+  width: 220px;
   animation: spin 2s linear infinite;
 }
 
@@ -299,9 +299,8 @@ h2 {
 .detailCard {
   width: 100%;
   max-width: 600px;
-  max-height: 700px;
-  /* min-height: 700px; */
-  min-height: 500px;
+  height: 100%;
+  max-height: 680px;
   padding: 0 0 16px 0;
 }
 
@@ -321,7 +320,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 0;
+  padding: 8px 0;
   cursor: pointer;
 }
 
@@ -381,7 +380,7 @@ h2 {
 }
 
 .detailInfoContainer {
-  margin-top: 30px;
+  margin-top: 25px;
   padding: 0 32px;
 }
 
@@ -390,7 +389,7 @@ h2 {
   background-color: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
-  height: 20px;
+  height: 16px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -456,10 +455,8 @@ footer {
 @media screen and (max-width: 445px) {
   .detailCard {
     max-height: 650px;
-    min-height: 620px;
   }
   .viewCharacteristics {
-
     padding: 8px 12px;
   }
 }
