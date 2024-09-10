@@ -9,14 +9,14 @@ function generateCardTemplate(i) {
         
         <div id="pokemonstyp" class="pokemonstyp">
           <div class="typeImg1Container">
-            <img class="typeImg1" src="./typeImg/${pokemons[i].types[0]}.svg">
+            <img class="typeImg1" src="./assets/typeImg/${pokemons[i].types[0]}.svg">
             <span class="typeText1">${pokemons[i].types[0]}</span>
           </div>
         ${
           pokemons[i].types[1]
             ? `
           <div class="typeImg2Container">
-            <img class="typeImg2" src="./typeImg/${pokemons[i].types[1]}.svg">
+            <img class="typeImg2" src="./assets/typeImg/${pokemons[i].types[1]}.svg">
             <span class="typeText2">${pokemons[i].types[1]}</span>
           </div>
                   `
@@ -51,9 +51,9 @@ function generateDetailCardTemplate(i) {
         <div class="imgContainer"><img class="cardImg" src="${
           pokemons[i].image
         }" alt="pokeimage"/>
-        <img onclick="closeDialog()" class="xMark" id="xMark" src="img/xmark.svg" alt="xmark">
-        <img onclick="previousPkm(${i - 1})" class="arrowImgLeft" id="arrowImgLeft" src="img/leftArrow.svg" alt="Left Arrow" class="arrowIcon leftArrow">
-        <img onclick="nextPkm(${i + 1})" class="arrowImgRight" id="arrowImgRight" src="img/arrowRight.svg" alt="Right Arrow" class="arrowIcon rightArrow">
+        <img onclick="closeDialog()" class="xMark" id="xMark" src="./assets/img/xmark.svg" alt="xmark">
+        <img onclick="previousPkm(${i - 1})" class="arrowImgLeft" id="arrowImgLeft" src="./assets/img/leftArrow.svg" alt="Left Arrow" class="arrowIcon leftArrow">
+        <img onclick="nextPkm(${i + 1})" class="arrowImgRight" id="arrowImgRight" src="./assets/img/arrowRight.svg" alt="Right Arrow" class="arrowIcon rightArrow">
       </div>
         
         <div class="detailInfoContainer">
@@ -144,14 +144,14 @@ function generateFilterCardTemplate(i) {
         
         <div id="pokemonstyp" class="pokemonstyp">
           <div class="typeImg1Container">
-            <img class="typeImg1" src="./typeImg/${pokemons[i].types[0]}.svg">
+            <img class="typeImg1" src="./assets/typeImg/${pokemons[i].types[0]}.svg">
             <span class="typeText1">${pokemons[i].types[0]}</span>
           </div>
         ${
           pokemons[i].types[1]
             ? `
           <div class="typeImg2Container">
-            <img class="typeImg2" src="./typeImg/${pokemons[i].types[1]}.svg">
+            <img class="typeImg2" src="./assets/typeImg/${pokemons[i].types[1]}.svg">
             <span class="typeText2">${pokemons[i].types[1]}</span>
           </div>
                   `
