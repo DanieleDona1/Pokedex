@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="style.css" />
     <script src="template.js"></script>
     <script src="script.js"></script>
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.ico"
+      type="image/x-icon"
+    />
   </head>
   <body onload="onloadfunc();">
     <div class="loadContainer" id="loadContainer">
@@ -18,7 +22,14 @@
         alt="Lade-Spinner"
         class="spinner"
       /><span>... loading</span>
+      <div class="preloaderContainer">
+        <div class="preloaderBar">
+          <div class="preloaderProgress" id="preloaderProgress"></div>
+        </div>
+        <span class="preloaderProgressText" id="preloaderProgressText">0%</span>
+      </div>
     </div>
+      
     <header>
       <div id="searchbar" class="searchbar">
         <b>Daniele's Pokédex</b>

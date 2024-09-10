@@ -3,6 +3,7 @@ let descriptionObject = [];
 let evolutionChainId = [];
 let startLoadPokemons = 0;
 let loadBatchSize = 20;
+let progressValue = 0;
 
 async function onloadfunc() {
   await loadAndShowPkm();
@@ -21,6 +22,7 @@ async function loadAndShowPkm() {
   render();
   offLoadingSpinner();
   renderDescription(startLoadPokemons, endLoadValue);
+  resetPreloaderValues();
   startLoadPokemons = endLoadValue;
 }
 
@@ -31,6 +33,7 @@ async function loadPokemons(start, end) {
     const Pokemon_URL = BASE_URL + `${i}`;
     let response = await fetch(Pokemon_URL);
     pkmPromises.push(response.json());
+    updatePreloaderProgressBar();
   }
   return await Promise.all(pkmPromises);
 }
@@ -273,4 +276,20 @@ function previousPkm(i) {
 function nextPkm(i) {
   openPokemonDetails(i);
   loadPokemonEvoChain(i);
+}
+
+function updatePreloaderProgressBar() {
+  const preloaderprogress = document.getElementById("preloaderProgress");
+  const preloaderprogressText = document.getElementById("preloaderProgressText");
+  progressValue += 5;
+  preloaderprogress.style.width = `${progressValue}%`;
+  preloaderprogressText.textContent = `${progressValue}%`;
+}
+
+function resetPreloaderValues() {
+  progressValue = 0;
+  const preloaderprogress = document.getElementById("preloaderProgress");
+  const preloaderprogressText = document.getElementById("preloaderProgressText");
+  preloaderprogress.style.width = `${progressValue}%`;
+  preloaderprogressText.textContent = `${progressValue}%`;
 }

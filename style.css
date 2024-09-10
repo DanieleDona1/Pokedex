@@ -29,7 +29,7 @@ header {
   padding-left: 70px;
   box-shadow: -1px 3px 4px -1px rgba(0, 0, 0, 0.3);
 
-  background-image: url("./img/pokemon_bg.jpg"); /* Pfad zum Hintergrundbild */
+  background-image: url("./assets/img/pokemon_bg.jpg"); /* Pfad zum Hintergrundbild */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -240,6 +240,31 @@ h2 {
   to {
     transform: rotate(360deg);
   }
+}
+
+.preloaderContainer {
+  width: 30%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.preloaderBar {
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.preloaderProgress {
+  height: 100%;
+  width: 0;
+  background: #4caf50;
+  transition: width 0.2s;
+}
+
+.preloaderProgressText {
+  font-size: 16px;
+  color: white;
 }
 
 .searchResults {
