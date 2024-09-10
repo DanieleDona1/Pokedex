@@ -137,6 +137,7 @@ function openPokemonDetails(i) {
     generateDetailCardTemplate(i);
   document.body.style.overflowY = "hidden";
   showMain(i);
+  addBorder();
 }
 
 function filterPokemon() {
@@ -192,6 +193,7 @@ function showStats(i) {
   document.getElementById("evochainCharacteristics").innerHTML = "";
   document.getElementById("statsCharacteristics").innerHTML =
     statsCharacteristicsTemplate(i);
+    removeBorder();
 }
 
 function closeDialog() {
@@ -257,6 +259,7 @@ function showEvo() {
   document.getElementById("mainCharacteristicsContainer").innerHTML = "";
   document.getElementById("statsCharacteristics").innerHTML = "";
   document.getElementById("evochainCharacteristics").innerHTML = "";
+  removeBorder();
 
   for (let j = 0; j < evolutionChainId.length; j++) {
     document.getElementById("evochainCharacteristics").innerHTML +=
@@ -295,4 +298,14 @@ function resetPreloaderValues() {
   const preloaderprogressText = document.getElementById("preloaderProgressText");
   preloaderprogress.style.width = `${progressValue}%`;
   preloaderprogressText.textContent = `${progressValue}%`;
+}
+
+function addBorder() {
+  const button = document.getElementById('btnMain');
+  button.style.border = '5px solid rgb(221, 221, 53)';
+}
+
+function removeBorder() {
+  const button = document.getElementById('btnMain');
+  button.style.border = '';
 }

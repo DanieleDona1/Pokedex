@@ -321,7 +321,8 @@ h2 {
   font-size: 18px;
 }
 
-.navigation button:hover {
+.navigation button:hover, 
+.navigation button:focus {
   border: 5px solid rgb(221, 221, 53);
   transform: scale(1.03);
 }

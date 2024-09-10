@@ -58,7 +58,7 @@ function generateDetailCardTemplate(i) {
         
         <div class="detailInfoContainer">
           <div class="navigation">
-            <button onclick="showMain(${i})">main</button>
+            <button onclick="showMain(${i})" id="btnMain">main</button>
             <button onclick="showStats(${i})">stats</button>
             <button onclick="showEvo()">evo chain</button>
         </div>
