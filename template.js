@@ -2,7 +2,7 @@ function generateCardTemplate(i) {
   let pokemonName = capitalizeFirstLetter(pokemons[i].name);
   return /*html*/ `
       <div class="card bg_${pokemons[i].type} cardJump">
-        <div class="d_flex_ce_ce">
+        <div class="dFlexCeCe">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
         <img class="cardImg" src="${pokemons[i].image}" alt="pokeimage" />
@@ -25,11 +25,11 @@ function generateCardTemplate(i) {
         </div>
   
         <div class="pkmDescription" id="pkmDescription${i}">
-        <div class="skeleton">
+          <div class="skeleton">
             <div class="skeleton-text-line"></div>
             <div class="skeleton-text-line"></div>
             <div class="skeleton-text-line"></div>
-        </div>
+          </div>
         </div>
 
         <div class="btnPrimary"><button id="btnMoreDetails" class="btnMoreDetails" onclick="openPokemonDetails(${i}); loadPokemonEvoChain(${i});">More Details</button>
@@ -45,7 +45,7 @@ function generateDetailCardTemplate(i) {
       <div class="card detailCard bg_${
         pokemons[i].type
       }" onclick="event.stopPropagation();">
-        <div class="d_flex_ce_ce">
+        <div class="dFlexCeCe">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
         <div class="imgContainer"><img class="cardImg" src="${
@@ -83,7 +83,7 @@ function mainCharacteristicsTemplate(i) {
               </div>
               <div class="mainCharacteristics" id="mainCharacteristics">
                 <div>Base experience:</div>
-                <div>${pokemons[i].baseExperience} exp</div>
+                <div class="dFlexEnd">${pokemons[i].baseExperience} exp</div>
               </div>
               <div class="mainCharacteristics" id="mainCharacteristics">
                 <div>Abilities:</div>
@@ -131,4 +131,44 @@ function evoTemplate(j) {
       <span>${pokemons[evolutionChainId[j] - 1].name}</span>
     </div>
     `;
+}
+
+function generateFilterCardTemplate(i) {
+  let pokemonName = capitalizeFirstLetter(pokemons[i].name);
+  return /*html*/ `
+      <div class="card bg_${pokemons[i].type} cardJump">
+        <div class="dFlexCeCe">
+          <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
+        </div>
+        <img class="cardImg" src="${pokemons[i].image}" alt="pokeimage" />
+        
+        <div id="pokemonstyp" class="pokemonstyp">
+          <div class="typeImg1Container">
+            <img class="typeImg1" src="./typeImg/${pokemons[i].types[0]}.svg">
+            <span class="typeText1">${pokemons[i].types[0]}</span>
+          </div>
+        ${
+          pokemons[i].types[1]
+            ? `
+          <div class="typeImg2Container">
+            <img class="typeImg2" src="./typeImg/${pokemons[i].types[1]}.svg">
+            <span class="typeText2">${pokemons[i].types[1]}</span>
+          </div>
+                  `
+            : ""
+        }
+        </div>
+  
+        <div class="pkmDescription" id="pkmFilterDescription${i}">
+          <div class="skeleton">
+            <div class="skeleton-text-line"></div>
+            <div class="skeleton-text-line"></div>
+            <div class="skeleton-text-line"></div>
+          </div>
+        </div>
+
+        <div class="btnPrimary"><button id="btnMoreDetails" class="btnMoreDetails" onclick="openPokemonDetails(${i}); loadPokemonEvoChain(${i});">More Details</button>
+            </div>
+        </div>
+        `;
 }

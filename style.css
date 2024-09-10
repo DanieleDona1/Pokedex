@@ -143,10 +143,15 @@ h2 {
   }
 }
 
-.d_flex_ce_ce {
+.dFlexCeCe {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dFlexEnd {
+  display: flex;
+  align-items: end;
 }
 
 .pokemonstyp {

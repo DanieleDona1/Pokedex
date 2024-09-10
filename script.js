@@ -157,7 +157,6 @@ function processSearchResults(input) {
   document.getElementById("btnFooter").disabled = true;
 
   let foundResults = false;
-
   for (let i = 0; i < pokemons.length; i++) {
     if (pokemons[i].name.includes(input)) {
       if (!foundResults) { 
@@ -165,7 +164,8 @@ function processSearchResults(input) {
         document.getElementById("searchResults").classList.remove("dNone");
         foundResults = true;
       }
-      document.getElementById("searchResults").innerHTML += generateCardTemplate(i); // Füge das Ergebnis hinzu
+      document.getElementById("searchResults").innerHTML += generateFilterCardTemplate(i);
+      document.getElementById(`pkmFilterDescription${i}`).innerHTML = `<div>${descriptionObject[i].description}</div>`;
     }
   }
 }
