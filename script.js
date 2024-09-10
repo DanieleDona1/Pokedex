@@ -281,7 +281,10 @@ function nextPkm(i) {
 function updatePreloaderProgressBar() {
   const preloaderprogress = document.getElementById("preloaderProgress");
   const preloaderprogressText = document.getElementById("preloaderProgressText");
-  progressValue += 5;
+
+  const increment = Math.ceil(100 / loadBatchSize);
+  progressValue = Math.min(progressValue + increment, 100);
+
   preloaderprogress.style.width = `${progressValue}%`;
   preloaderprogressText.textContent = `${progressValue}%`;
 }
