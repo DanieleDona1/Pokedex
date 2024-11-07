@@ -285,13 +285,19 @@ function sanitizeDescription(text) {
 }
 
 function previousPkm(i) {
-  openPokemonDetails(i);
-  loadPokemonEvoChain(i);
+  if (i !== -1) {
+    openPokemonDetails(i);
+    loadPokemonEvoChain(i);
+  }
 }
 
 function nextPkm(i) {
-  openPokemonDetails(i);
-  loadPokemonEvoChain(i);
+  if (i !== startLoadPokemons) {
+    openPokemonDetails(i);
+    loadPokemonEvoChain(i);
+  } else {
+    console.log('load more Pokémon\'s');
+  }
 }
 
 function updatePreloaderProgressBar() {
