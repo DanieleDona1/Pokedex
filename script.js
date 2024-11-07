@@ -5,6 +5,9 @@ let startLoadPokemons = 0;
 let loadBatchSize = 20;
 let progressValue = 0;
 
+// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png
+// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/2.gif
+
 async function onloadfunc() {
   await loadAndShowPkm();
 }
@@ -18,12 +21,14 @@ async function loadAndShowPkm() {
   let endLoadValue = startLoadPokemons + loadBatchSize;
 
   const pkmResponseAsJson = await loadPokemons(startLoadPokemons, endLoadValue);
+  console.log('pokemons json', pkmResponseAsJson);
   pokemons.push(...createJsonObject(pkmResponseAsJson));
   render();
   offLoadingSpinner();
   renderDescription(startLoadPokemons, endLoadValue);
   resetPreloaderValues();
   startLoadPokemons = endLoadValue;
+
 }
 
 async function loadPokemons(start, end) {
@@ -59,6 +64,7 @@ function profilObject(data) {
     name: data.name,
     id: data.id,
     image: data.sprites.other['official-artwork'].front_default,
+    image_showdown: data.sprites.other.showdown.front_default,
     type: data.types[0].type.name,
     types: data.types.map((type) => type.type.name),
   };
@@ -247,18 +253,10 @@ function getUrlId(url) {
 }
 
 function showEvo() {
-  console.log(evolutionChainId.length);
-  console.log(evolutionChainId);
-
-  // Prüfe, ob `evolutionChainId` ein Array ist und mindestens ein Element enthält
   if (Array.isArray(evolutionChainId) && evolutionChainId.length > 0) {
-    // Konvertiere die Strings im Array in Zahlen
     const numbers = evolutionChainId.map(Number);
-
-    // Überprüfe, ob die Zahlen aufsteigend sind
     const isAscending = numbers.every((num, i) => i === 0 || num > numbers[i - 1]);
 
-    // Wenn die Zahlen aufsteigend sind, führe den Codeblock aus
     if (isAscending) {
       document.getElementById('mainCharacteristicsContainer').innerHTML = '';
       document.getElementById('statsCharacteristics').innerHTML = '';

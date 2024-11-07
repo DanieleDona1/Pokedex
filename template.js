@@ -5,7 +5,8 @@ function generateCardTemplate(i) {
         <div class="d-flex-c-c">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
-        <img class="card-img" src="${pokemons[i].image}" alt="pokeimage" />
+        <img class="card-img" src="${pokemons[i].image}" alt="poke-image" />
+        <!-- <img class="card-img-showdown" src="${pokemons[i].image_showdown}" alt="poke-image" /> -->
 
         <div id="pokemonstyp" class="pokemons-typ">
           <div class="type-img1-container">
@@ -46,10 +47,10 @@ function generateDetailCardTemplate(i) {
         <div class="d-flex-c-c">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
-        <div class="img-container"><img class="card-img" src="${pokemons[i].image}" alt="pokeimage"/>
+        <div class="img-container"><img class="card-img" src="${pokemons[i].image}" alt="poke-image"/>
         <img onclick="closeDialog()" class="x-mark" id="xMark" src="./assets/img/xmark.svg" alt="xmark">
-        <img onclick="previousPkm(${i - 1})" class="arrow-img-left" id="arrowImgLeft" src="./assets/img/leftArrow.svg" alt="Left Arrow" class="arrow-icon left-arrow">
-        <img onclick="nextPkm(${i + 1})" class="arrow-img-right" id="arrowImgRight" src="./assets/img/arrowRight.svg" alt="Right Arrow" class="arrow-icon right-arrow">
+        <img onclick="previousPkm(${i - 1})" class="arrow-img-left" id="arrowImgLeft" src="./assets/img/leftArrow.svg" alt="left-arrow">
+        <img onclick="nextPkm(${i + 1})" class="arrow-img-right" id="arrowImgRight" src="./assets/img/arrowRight.svg" alt="right-arrow">
       </div>
 
         <div class="detail-info-container">
