@@ -103,15 +103,41 @@ h2 {
   transform: translateY(-5px);
 }
 
-.card-img {
+.card-img, .card-img-showdown {
   width: 100%;
-  max-width: 300px;
+  max-width: 285px;
   height: 240px;
   border: 7px solid;
   border-image: linear-gradient(to left top, rgb(225, 224, 120), rgb(221, 221, 53), rgb(193, 193, 8)) 1;
   margin: 5px 0px;
   transition: transform 0.3s ease, filter 0.3s ease;
   background-color: rgb(255, 255, 255);
+}
+
+.card-img-container {
+  position: relative;
+}
+
+.card-img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-img-showdown {
+  padding: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 240px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card-img:hover .card-img {
+  opacity: 0;
+}
+
+.card:hover .card-img-showdown {
+  opacity: 1;
 }
 
 .skeleton {

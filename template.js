@@ -5,8 +5,10 @@ function generateCardTemplate(i) {
         <div class="d-flex-c-c">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
-        <img class="card-img" src="${pokemons[i].image}" alt="poke-image" />
-        <!-- <img class="card-img-showdown" src="${pokemons[i].image_showdown}" alt="poke-image" /> -->
+        <div class="card-img-container">
+          <img class="card-img" src="${pokemons[i].image}" alt="poke-image" />
+          <img class="card-img-showdown" src="${pokemons[i].image_showdown}" alt="poke-image" />
+        </div>
 
         <div id="pokemonstyp" class="pokemons-typ">
           <div class="type-img1-container">
