@@ -9,8 +9,8 @@ async function onloadfunc() {
   await loadAndShowPkm();
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
-const PKMDESCRIPTION_URL = "https://pokeapi.co/api/v2/pokemon-species/";
+const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+const PKMDESCRIPTION_URL = 'https://pokeapi.co/api/v2/pokemon-species/';
 
 async function loadAndShowPkm() {
   onLoadingSpinner();
@@ -39,11 +39,11 @@ async function loadPokemons(start, end) {
 }
 
 function onLoadingSpinner() {
-  document.getElementById("loadContainer").classList.remove("dNone");
+  document.getElementById('loadContainer').classList.remove('d-none');
 }
 
 function offLoadingSpinner() {
-  document.getElementById("loadContainer").classList.add("dNone");
+  document.getElementById('loadContainer').classList.add('d-none');
 }
 
 function createJsonObject(responseAsJson) {
@@ -58,7 +58,7 @@ function profilObject(data) {
   return {
     name: data.name,
     id: data.id,
-    image: data.sprites.other["official-artwork"].front_default,
+    image: data.sprites.other['official-artwork'].front_default,
     type: data.types[0].type.name,
     types: data.types.map((type) => type.type.name),
   };
@@ -69,7 +69,7 @@ function mainObject(data) {
     height: data.height,
     weight: data.weight,
     baseExperience: data.base_experience,
-    abilities: data.abilities.map((ability) => ability.ability.name).join(", "),
+    abilities: data.abilities.map((ability) => ability.ability.name).join(', '),
   };
 }
 
@@ -86,7 +86,7 @@ function statsObject(data) {
 
 function render() {
   const pokemonsLength = pokemons.length;
-  const myPokedex = document.getElementById("myPokedex");
+  const myPokedex = document.getElementById('myPokedex');
   for (let i = startLoadPokemons; i < pokemonsLength; i++) {
     myPokedex.innerHTML += generateCardTemplate(i);
   }
@@ -97,10 +97,7 @@ function capitalizeFirstLetter(string) {
 }
 
 async function renderDescription(startLoadPokemons, endLoadValue) {
-  descriptionResponseAsJson = await loadDescriptions(
-    startLoadPokemons,
-    endLoadValue
-  );
+  descriptionResponseAsJson = await loadDescriptions(startLoadPokemons, endLoadValue);
   descriptionObject.push(...createDescriptionObject(descriptionResponseAsJson));
 
   const descriptionLength = descriptionObject.length;
@@ -122,26 +119,24 @@ async function loadDescriptions(start, end) {
 
 function createDescriptionObject(descriptionArray) {
   return descriptionArray.map((data) => {
-    const description =
-      data?.flavor_text_entries?.[2]?.flavor_text || "No description available";
+    const description = data?.flavor_text_entries?.[2]?.flavor_text || 'No description available';
 
-      return {
-        description: sanitizeDescription(description),
-      };
-    });
-  }
+    return {
+      description: sanitizeDescription(description),
+    };
+  });
+}
 
 function openPokemonDetails(i) {
-  document.getElementById("detailViewDialog").classList.remove("dNone");
-  document.getElementById("detailViewDialog").innerHTML =
-    generateDetailCardTemplate(i);
-  document.body.style.overflowY = "hidden";
+  document.getElementById('detailViewDialog').classList.remove('d-none');
+  document.getElementById('detailViewDialog').innerHTML = generateDetailCardTemplate(i);
+  document.body.style.overflowY = 'hidden';
   showMain(i);
   addBorder();
 }
 
 function filterPokemon() {
-  let input = document.getElementById("search").value;
+  let input = document.getElementById('search').value;
 
   if (isValidInput(input)) {
     processSearchResults(input);
@@ -155,54 +150,52 @@ function isValidInput(input) {
 }
 
 function processSearchResults(input) {
-  const searchResults = document.getElementById("searchResults");
-  searchResults.innerHTML = "";
-  document.getElementById("inputMessage").style.color = "transparent";
-  document.getElementById("btnFooter").disabled = true;
+  const searchResults = document.getElementById('searchResults');
+  searchResults.innerHTML = '';
+  document.getElementById('inputMessage').style.color = 'transparent';
+  document.getElementById('btnFooter').disabled = true;
 
   let foundResults = false;
   for (let i = 0; i < pokemons.length; i++) {
     if (pokemons[i].name.includes(input)) {
-      if (!foundResults) { 
-        document.getElementById("myPokedex").classList.add("dNone");
-        document.getElementById("searchResults").classList.remove("dNone");
+      if (!foundResults) {
+        document.getElementById('myPokedex').classList.add('d-none');
+        document.getElementById('searchResults').classList.remove('d-none');
         foundResults = true;
       }
-      document.getElementById("searchResults").innerHTML += generateFilterCardTemplate(i);
+      document.getElementById('searchResults').innerHTML += generateFilterCardTemplate(i);
       document.getElementById(`pkmFilterDescription${i}`).innerHTML = `<div>${descriptionObject[i].description}</div>`;
     }
   }
 }
 
 function updateUIForInvalidInput() {
-  document.getElementById("inputMessage").style.color = "red";
-  document.getElementById("myPokedex").classList.remove("dNone");
-  document.getElementById("searchResults").classList.add("dNone");
-  document.getElementById("btnFooter").disabled = false;
+  document.getElementById('inputMessage').style.color = 'red';
+  document.getElementById('myPokedex').classList.remove('d-none');
+  document.getElementById('searchResults').classList.add('d-none');
+  document.getElementById('btnFooter').disabled = false;
 }
 
 function showMain(i) {
-  document.getElementById("statsCharacteristics").innerHTML = "";
-  document.getElementById("evochainCharacteristics").innerHTML = "";
-  document.getElementById("mainCharacteristicsContainer").innerHTML =
-    mainCharacteristicsTemplate(i);
+  document.getElementById('statsCharacteristics').innerHTML = '';
+  document.getElementById('evochainCharacteristics').innerHTML = '';
+  document.getElementById('mainCharacteristicsContainer').innerHTML = mainCharacteristicsTemplate(i);
 }
 
 function showStats(i) {
-  document.getElementById("mainCharacteristicsContainer").innerHTML = "";
-  document.getElementById("evochainCharacteristics").innerHTML = "";
-  document.getElementById("statsCharacteristics").innerHTML =
-    statsCharacteristicsTemplate(i);
-    removeBorder();
+  document.getElementById('mainCharacteristicsContainer').innerHTML = '';
+  document.getElementById('evochainCharacteristics').innerHTML = '';
+  document.getElementById('statsCharacteristics').innerHTML = statsCharacteristicsTemplate(i);
+  removeBorder();
 }
 
 function closeDialog() {
-  document.getElementById("detailViewDialog").classList.add("dNone");
-  document.getElementById("search").value = "";
-  document.getElementById("myPokedex").classList.remove("dNone");
-  document.getElementById("btnFooter").disabled = false;
-  document.getElementById("searchResults").classList.add("dNone");
-  document.body.style.overflowY = "visible";
+  document.getElementById('detailViewDialog').classList.add('d-none');
+  document.getElementById('search').value = '';
+  document.getElementById('myPokedex').classList.remove('d-none');
+  document.getElementById('btnFooter').disabled = false;
+  document.getElementById('searchResults').classList.add('d-none');
+  document.body.style.overflowY = 'visible';
 }
 
 function loadMore() {
@@ -219,8 +212,7 @@ async function loadPokemonEvoChain(currentPokemon) {
 
 async function getEvoulutionChainAsJson(currentPokemon) {
   evolutionChainId = [];
-  let evoApi =
-    "https://pokeapi.co/api/v2/pokemon-species/" + `${currentPokemon}`;
+  let evoApi = 'https://pokeapi.co/api/v2/pokemon-species/' + `${currentPokemon}`;
   let response = await fetch(evoApi);
   let responseAsJson = await response.json();
   let evolutionChainUrl = responseAsJson.evolution_chain.url;
@@ -243,32 +235,30 @@ function addSecondEvoId(evolutionChainAsJson) {
 }
 
 function addThirdEvoId(evolutionChainAsJson) {
-  const species =
-    evolutionChainAsJson.chain?.evolves_to?.[0]?.evolves_to?.[0]?.species;
+  const species = evolutionChainAsJson.chain?.evolves_to?.[0]?.evolves_to?.[0]?.species;
   if (species) {
     evolutionChainId[2] = getUrlId(species.url);
   }
 }
 
 function getUrlId(url) {
-  const parts = url.split("/");
+  const parts = url.split('/');
   return parts[parts.length - 2];
 }
 
 function showEvo() {
-  document.getElementById("mainCharacteristicsContainer").innerHTML = "";
-  document.getElementById("statsCharacteristics").innerHTML = "";
-  document.getElementById("evochainCharacteristics").innerHTML = "";
+  document.getElementById('mainCharacteristicsContainer').innerHTML = '';
+  document.getElementById('statsCharacteristics').innerHTML = '';
+  document.getElementById('evochainCharacteristics').innerHTML = '';
   removeBorder();
 
   for (let j = 0; j < evolutionChainId.length; j++) {
-    document.getElementById("evochainCharacteristics").innerHTML +=
-      evoTemplate(j);
+    document.getElementById('evochainCharacteristics').innerHTML += evoTemplate(j);
   }
 }
 
 function sanitizeDescription(text) {
-  return text.replace(/\f/g, " ");
+  return text.replace(/\f/g, ' ');
 }
 
 function previousPkm(i) {
@@ -282,8 +272,8 @@ function nextPkm(i) {
 }
 
 function updatePreloaderProgressBar() {
-  const preloaderprogress = document.getElementById("preloaderProgress");
-  const preloaderprogressText = document.getElementById("preloaderProgressText");
+  const preloaderprogress = document.getElementById('preloaderProgress');
+  const preloaderprogressText = document.getElementById('preloaderProgressText');
 
   const increment = Math.ceil(100 / loadBatchSize);
   progressValue = Math.min(progressValue + increment, 100);
@@ -294,8 +284,8 @@ function updatePreloaderProgressBar() {
 
 function resetPreloaderValues() {
   progressValue = 0;
-  const preloaderprogress = document.getElementById("preloaderProgress");
-  const preloaderprogressText = document.getElementById("preloaderProgressText");
+  const preloaderprogress = document.getElementById('preloaderProgress');
+  const preloaderprogressText = document.getElementById('preloaderProgressText');
   preloaderprogress.style.width = `${progressValue}%`;
   preloaderprogressText.textContent = `${progressValue}%`;
 }

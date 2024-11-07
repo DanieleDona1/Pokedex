@@ -29,7 +29,7 @@ header {
   padding-left: 70px;
   box-shadow: -1px 3px 4px -1px rgba(0, 0, 0, 0.3);
 
-  background-image: url("./assets/img/pokemon_bg.jpg"); /* Pfad zum Hintergrundbild */
+  background-image: url('./assets/img/pokemon_bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,12 +57,12 @@ header input:hover {
   background-color: rgb(254, 254, 254);
 }
 
-header .inputMessage {
+header .input-message {
   color: transparent;
   display: flex;
 }
 
-header .inputMessage b {
+header .input-message b {
   background-color: rgba(255, 255, 255, 0.651);
 }
 
@@ -99,85 +99,79 @@ h2 {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.cardJump:hover {
-  transform: translateY(-5px); /* Bewegt das Bild leicht nach oben */
+.card-jump:hover {
+  transform: translateY(-5px);
 }
 
-.cardImg {
+.card-img {
   width: 100%;
   max-width: 300px;
   border: 7px solid;
-  border-image: linear-gradient(
-      to left top,
-      rgb(225, 224, 120),
-      rgb(221, 221, 53),
-      rgb(193, 193, 8)
-    )
-    1;
+  border-image: linear-gradient(to left top, rgb(225, 224, 120), rgb(221, 221, 53), rgb(193, 193, 8)) 1;
   margin: 5px 0px;
   transition: transform 0.3s ease, filter 0.3s ease;
   background-color: rgb(255, 255, 255);
 }
 
 .skeleton {
-  width: 100%; /* Breite des Skeletons */
+  width: 100%;
   margin: 10px auto;
 }
 
 .skeleton-text-line {
-  height: 15px; /* Höhe der Textzeile */
-  background-color: #e0e0e0; /* Hintergrundfarbe für das Skeleton */
-  margin: 10px 0; /* Abstand zwischen den Zeilen */
-  border-radius: 4px; /* Abgerundete Ecken */
-  animation: shimmer 1.5s infinite; /* Animation hinzufügen */
+  height: 15px;
+  background-color: #e0e0e0;
+  margin: 10px 0;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
   background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
-  background-size: 200px 100%; /* Größe des Schimmerhintergrunds */
+  background-size: 200px 100%;
 }
 
 @keyframes shimmer {
   0% {
-      background-position: -100px 0; /* Startposition */
+    background-position: -100px 0;
   }
   100% {
-      background-position: 100px 0; /* Endposition */
+    background-position: 100px 0;
   }
 }
 
-.dFlexCeCe {
+.d-flex-c-c {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.dFlexEnd {
+.d-flex-end {
   display: flex;
   align-items: end;
 }
 
-.pokemonstyp {
+.pokemons-typ {
   display: flex;
   gap: 8px;
   margin-left: 5px;
   margin-bottom: 10px;
 }
 
-.typeImg1Container,
-.typeImg2Container {
+.type-img1-container,
+.type-img2-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
-.typeImg1,
-.typeImg2 {
+.type-img1,
+.type-img2 {
   border: 3px solid white;
   border-radius: 50%;
   width: 30px;
 }
 
-.typeText1,
-.typeText2 {
+.type-text1,
+.type-text2 {
   color: transparent;
   position: absolute;
   top: 32px;
@@ -192,13 +186,13 @@ h2 {
   pointer-events: none;
 }
 
-.typeImg1Container:hover .typeText1,
-.typeImg2Container:hover .typeText2 {
+.type-img1-container:hover .type-text1,
+.type-img2-container:hover .type-text2 {
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.dialog_bg {
+.dialog-bg {
   background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
@@ -211,7 +205,7 @@ h2 {
   z-index: 1;
 }
 
-.loadContainer {
+.load-container {
   background-color: rgba(0, 0, 0);
   position: fixed;
   top: 0;
@@ -228,7 +222,7 @@ h2 {
   height: 100vh;
 }
 
-.loadSpinner {
+.load-spinner {
   width: 220px;
   animation: spin 2s linear infinite;
 }
@@ -242,54 +236,53 @@ h2 {
   }
 }
 
-.preloaderContainer {
+.preloader-container {
   width: 30%;
   margin: 20px auto;
   text-align: center;
 }
 
-.preloaderBar {
+.preloader-bar {
   height: 20px;
   background: #ddd;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.preloaderProgress {
+.preloader-progress {
   height: 100%;
   width: 0;
   background: #4caf50;
   transition: width 0.2s;
 }
 
-.preloaderProgressText {
+.preloader-progress-text {
   font-size: 16px;
   color: white;
 }
 
-.searchResults {
+.search-results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.pkmDescription {
+.pkm-description {
   background-color: white;
   padding: 5px;
   border-radius: 5px;
 }
 
-.btnPrimary {
+.btn-primary {
   display: flex;
   justify-content: center;
-  /* neu  */
   position: absolute;
   bottom: 16px;
   left: 0px;
   right: 0px;
 }
 
-.btnMoreDetails {
+.btn-more-details {
   background-color: hwb(0 100% 10%);
   border-width: 3px;
   outline-color: transparent;
@@ -298,7 +291,8 @@ h2 {
   cursor: pointer;
   font-weight: bold;
 }
-.btnMoreDetails:hover {
+
+.btn-more-details:hover {
   background-color: rgb(255, 255, 255);
 }
 
@@ -321,13 +315,13 @@ h2 {
   font-size: 18px;
 }
 
-.navigation button:hover, 
+.navigation button:hover,
 .navigation button:focus {
   border: 5px solid rgb(221, 221, 53);
   transform: scale(1.03);
 }
 
-.detailCard {
+.detail-card {
   width: 100%;
   max-width: 600px;
   height: 100%;
@@ -335,18 +329,17 @@ h2 {
   padding: 0 0 16px 0;
 }
 
-.detailCard img {
+.detail-card img {
   border: 0px solid;
 }
 
-.evochainCharacteristics {
+.evochain-characteristics {
   display: flex;
-
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.evoContainer {
+.evo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -355,14 +348,14 @@ h2 {
   cursor: pointer;
 }
 
-.evoImg {
+.evo-img {
   background-color: transparent;
   max-width: 130px;
   width: 100%;
 }
 
-.arrowImgLeft,
-.arrowImgRight {
+.arrow-img-left,
+.arrow-img-right {
   position: absolute;
   cursor: pointer;
   max-width: 40px;
@@ -370,16 +363,16 @@ h2 {
   transform: translateY(-50%);
 }
 
-.arrowImgLeft {
+.arrow-img-left {
   left: 0;
   padding: 10px 10px 10px 0px;
 }
-.arrowImgRight {
+.arrow-img-right {
   right: 0px;
   padding: 10px 0px 10px 10px;
 }
 
-.imgContainer {
+.img-container {
   display: flex;
   justify-content: center;
   background-color: white;
@@ -388,34 +381,34 @@ h2 {
   position: relative;
 }
 
-.viewCharacteristics {
+.view-characteristics {
   margin-top: 16px;
   background-color: aliceblue;
   padding: 18px 12px;
   border-radius: 16px;
 }
 
-.mainCharacteristicsContainer {
+.main-characteristics-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.mainCharacteristics {
+.main-characteristics {
   display: flex;
   flex-wrap: wrap;
   font-size: 18px;
 }
-.mainCharacteristics div {
+.main-characteristics div {
   flex: 1;
 }
 
-.detailInfoContainer {
+.detail-info-container {
   margin-top: 25px;
   padding: 0 32px;
 }
 
-.progressContainer {
+.progress-container {
   width: 100%;
   background-color: #e0e0e0;
   border-radius: 5px;
@@ -428,19 +421,19 @@ h2 {
   margin-bottom: 7px;
 }
 
-.progressBar {
+.progress-bar {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
 }
 
-.progressContainer p {
+.progress-container p {
   z-index: 1;
   pointer-events: none;
 }
 
-.evoImg {
+.evo-img {
   width: 110px;
 }
 
@@ -450,14 +443,14 @@ footer {
   align-items: center;
   padding: 60px 0px;
 }
-.btnFooter {
+.btn-footer {
   font-weight: bold;
   padding: 12px;
   font-size: 18px;
   cursor: pointer;
 }
 
-.xMark {
+.x-mark {
   cursor: pointer;
   width: 30px;
   position: absolute;
@@ -465,11 +458,11 @@ footer {
   right: 0px;
 }
 
-.xMark:hover {
+.x-mark:hover {
   background-color: rgba(255, 0, 0, 0.747);
 }
 
-.dNone {
+.d-none {
   display: none;
 }
 
@@ -478,7 +471,7 @@ footer {
     padding: 0px 0px;
     margin-top: 8px;
   }
-  .evoImg{
+  .evoImg {
     width: 75px;
   }
 }

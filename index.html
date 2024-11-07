@@ -8,41 +8,24 @@
     <link rel="stylesheet" href="style.css" />
     <script src="template.js"></script>
     <script src="script.js"></script>
-    <link
-      rel="shortcut icon"
-      href="./assets/img/favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
   </head>
   <body onload="onloadfunc();">
-    <div class="loadContainer" id="loadContainer">
-      <img
-        class="loadSpinner"
-        src="./assets/img/loadingSpinner.png"
-        alt="Lade-Spinner"
-        class="spinner"
-      /><span>... loading</span>
-      <div class="preloaderContainer">
-        <div class="preloaderBar">
-          <div class="preloaderProgress" id="preloaderProgress"></div>
+    <div class="load-container" id="loadContainer">
+      <img class="load-spinner" src="./assets/img/loadingSpinner.png" alt="Lade-Spinner" class="spinner" /><span>... loading</span>
+      <div class="preloader-container">
+        <div class="preloader-bar">
+          <div class="preloader-progress" id="preloaderProgress"></div>
         </div>
-        <span class="preloaderProgressText" id="preloaderProgressText">0%</span>
+        <span class="preloader-progress-text" id="preloaderProgressText">0%</span>
       </div>
     </div>
-      
+
     <header>
       <div id="searchbar" class="searchbar">
         <b>Daniele's Pokédex</b>
-        <input
-          minlength="3"
-          type="search"
-          id="search"
-          class="search"
-          placeholder="🔍 search pokemon"
-          oninput="filterPokemon()"
-          required
-        />
-        <div id="inputMessage" class="inputMessage">
+        <input minlength="3" type="search" id="search" class="search" placeholder="🔍 search pokemon" oninput="filterPokemon()" required />
+        <div id="inputMessage" class="input-message">
           <b>Minimum 3 characters!</b>
         </div>
       </div>
@@ -50,17 +33,11 @@
 
     <div class="max-width-1920">
       <main id="myPokedex"></main>
-      <section id="searchResults" class="searchResults"></section>
-      <section
-        onclick="closeDialog()"
-        id="detailViewDialog"
-        class="dialog_bg dNone"
-      ></section>
+      <section id="searchResults" class="search-results"></section>
+      <section onclick="closeDialog()" id="detailViewDialog" class="dialog-bg d-none"></section>
     </div>
     <footer id="footer">
-      <button id="btnFooter" class="btnFooter" onclick="loadMore()">
-        LOAD MORE
-      </button>
+      <button id="btnFooter" class="btn-footer" onclick="loadMore()">LOAD MORE</button>
     </footer>
   </body>
 </html>

@@ -1,231 +1,143 @@
-.bg_grass {
+.bg-grass {
   background: linear-gradient(120deg, #bef587, #7cfc00, #237623, #195419);
 }
 
-.bg_fire {
-  background: linear-gradient(
-    120deg,
-    rgb(252, 109, 0),
-    rgb(252, 109, 0),
-    rgb(156, 58, 56),
-    rgb(120, 23, 22)
-  );
+.bg-fire {
+  background: linear-gradient(120deg, rgb(252, 109, 0), rgb(252, 109, 0), rgb(156, 58, 56), rgb(120, 23, 22));
 }
 
-.bg_water {
-  background: linear-gradient(
-    120deg,
-    rgb(154, 158, 228),
-    rgb(126, 131, 236),
-    rgb(49, 60, 252),
-    rgb(17, 29, 249)
-  );
+.bg-water {
+  background: linear-gradient(120deg, rgb(154, 158, 228), rgb(126, 131, 236), rgb(49, 60, 252), rgb(17, 29, 249));
 }
 
-.bg_normal {
-  background: linear-gradient(
-    120deg,
-    rgb(215 215 215),
-    rgb(142 139 83),
-    rgb(163, 155, 2)
-  );
+.bg-normal {
+  background: linear-gradient(120deg, rgb(215 215 215), rgb(142 139 83), rgb(163, 155, 2));
 }
 
-.bg_flying {
+.bg-flying {
   background-color: rgb(8, 87, 100);
 }
 
-.bg_bug {
-  background: linear-gradient(
-    120deg,
-    rgb(187, 106, 138),
-    rgb(186, 83, 124),
-    rgb(176, 42, 95),
-    rgb(112, 5, 48)
-  );
+.bg-bug {
+  background: linear-gradient(120deg, rgb(187, 106, 138), rgb(186, 83, 124), rgb(176, 42, 95), rgb(112, 5, 48));
 }
 
-.bg_poison {
-  background: linear-gradient(
-    120deg,
-    hsl(283, 33%, 64%),
-    hsl(283, 42%, 54%),
-    rgb(97, 19, 128)
-  );
+.bg-poison {
+  background: linear-gradient(120deg, hsl(283, 33%, 64%), hsl(283, 42%, 54%), rgb(97, 19, 128));
 }
 
-.bg_electric {
-  background: linear-gradient(
-    120deg,
-    hsl(60, 100%, 80%),
-    hsl(60, 100%, 70%),
-    hsl(60, 100%, 60%),
-    hsl(60, 100%, 50%)
-  );
+.bg-electric {
+  background: linear-gradient(120deg, hsl(60, 100%, 80%), hsl(60, 100%, 70%), hsl(60, 100%, 60%), hsl(60, 100%, 50%));
 }
 
-.bg_ground {
-  background: linear-gradient(
-    120deg,
-    hsl(0, 59%, 81%),
-    hsl(0, 59%, 71%),
-    hsl(0, 59%, 61%),
-    hsl(0, 59%, 51%)
-  );
+.bg-ground {
+  background: linear-gradient(120deg, hsl(0, 59%, 81%), hsl(0, 59%, 71%), hsl(0, 59%, 61%), hsl(0, 59%, 51%));
 }
 
-.bg_fighting {
+.bg-fighting {
   background-color: rgb(128, 11, 17);
 }
 
-.bg_psychic {
+.bg-psychic {
   background-color: rgb(138, 5, 50);
 }
 
-.bg_rock {
+.bg-rock {
   background-color: rgb(71, 64, 38);
 }
 
-.bg_ice {
+.bg-ice {
   background-color: rgb(16, 61, 67);
 }
 
-.bg_ghost {
+.bg-ghost {
   background-color: rgb(71, 43, 83);
 }
 
-.bg_dragon {
+.bg-dragon {
   background-color: rgb(41, 3, 106);
 }
 
-.bg_dark {
+.bg-dark {
   background-color: rgb(45, 34, 28);
 }
 
-.bg_steel {
+.bg-steel {
   background-color: rgb(69, 69, 69);
 }
 
-.bg_fairy {
+.bg-fairy {
   background-color: rgb(248, 126, 167);
 }
 
-.bg_bar_grass {
-  background: linear-gradient(
-    90deg,
-    hsl(90, 85%, 80%),
-    hsl(90, 100%, 79%),
-    hsl(120, 54%, 60%),
-    hsl(120, 54%, 50%)
-  );
+.bg-bar-grass {
+  background: linear-gradient(90deg, hsl(90, 85%, 80%), hsl(90, 100%, 79%), hsl(120, 54%, 60%), hsl(120, 54%, 50%));
 }
 
-.bg_bar_fire {
-  background: linear-gradient(
-    90deg,
-    hsl(26, 100%, 80%),
-    hsl(26, 100%, 70%),
-    hsl(1, 47%, 60%)
-  );
+.bg-bar-fire {
+  background: linear-gradient(90deg, hsl(26, 100%, 80%), hsl(26, 100%, 70%), hsl(1, 47%, 60%));
 }
 
-.bg_bar_water {
-  background: linear-gradient(
-    90deg,
-    rgb(154, 158, 228),
-    rgb(126, 131, 236),
-    rgb(49, 60, 252)
-  );
+.bg-bar-water {
+  background: linear-gradient(90deg, rgb(154, 158, 228), rgb(126, 131, 236), rgb(49, 60, 252));
 }
 
-.bg_bar_normal {
-  background: linear-gradient(
-    90deg,
-    rgb(176, 168, 168),
-    rgb(142 139 83),
-    rgb(163, 155, 2)
-  );
+.bg-bar-normal {
+  background: linear-gradient(90deg, rgb(176, 168, 168), rgb(142 139 83), rgb(163, 155, 2));
 }
 
-.bg_bar_flying {
-  background: linear-gradient(
-    90deg,
-    hsl(188, 77%, 75%),
-    hsl(188, 77%, 60%),
-    hsl(188, 77%, 40%)
-  );
+.bg-bar-flying {
+  background: linear-gradient(90deg, hsl(188, 77%, 75%), hsl(188, 77%, 60%), hsl(188, 77%, 40%));
 }
 
-.bg_bar_bug {
-  background: linear-gradient(
-    90deg,
-    rgb(187, 106, 138),
-    rgb(186, 83, 124),
-    rgb(176, 42, 95)
-  );
+.bg-bar-bug {
+  background: linear-gradient(90deg, rgb(187, 106, 138), rgb(186, 83, 124), rgb(176, 42, 95));
 }
 
-.bg_bar_poison {
-  background: linear-gradient(
-    90deg,
-    hsl(283, 33%, 64%),
-    hsl(283, 42%, 54%),
-    rgb(97, 19, 128)
-  );
+.bg-bar-poison {
+  background: linear-gradient(90deg, hsl(283, 33%, 64%), hsl(283, 42%, 54%), rgb(97, 19, 128));
 }
 
-.bg_bar_electric {
-  background: linear-gradient(
-    90deg,
-    hsl(60, 100%, 80%),
-    hsl(60, 100%, 70%),
-    hsl(60, 100%, 60%),
-    hsl(60, 100%, 50%)
-  );
+.bg-bar-electric {
+  background: linear-gradient(90deg, hsl(60, 100%, 80%), hsl(60, 100%, 70%), hsl(60, 100%, 60%), hsl(60, 100%, 50%));
 }
 
-.bg_bar_ground {
-  background: linear-gradient(
-    90deg,
-    hsl(0, 59%, 81%),
-    hsl(0, 59%, 71%),
-    hsl(0, 59%, 61%),
-    hsl(0, 59%, 51%)
-  );
+.bg-bar-ground {
+  background: linear-gradient(90deg, hsl(0, 59%, 81%), hsl(0, 59%, 71%), hsl(0, 59%, 61%), hsl(0, 59%, 51%));
 }
 
-.bg_bar_fighting {
+.bg-bar-fighting {
   background-color: rgb(128, 11, 17);
 }
 
-.bg_bar_psychic {
+.bg-bar-psychic {
   background-color: rgb(138, 5, 50);
 }
 
-.bg_bar_rock {
+.bg-bar-rock {
   background-color: rgb(71, 64, 38);
 }
 
-.bg_bar_ice {
+.bg-bar-ice {
   background-color: rgb(16, 61, 67);
 }
 
-.bg_bar_ghost {
+.bg-bar-ghost {
   background-color: rgb(71, 43, 83);
 }
 
-.bg_bar_dragon {
+.bg-bar-dragon {
   background-color: rgb(41, 3, 106);
 }
 
-.bg_bar_dark {
+.bg-bar-dark {
   background-color: rgb(45, 34, 28);
 }
 
-.bg_bar_steel {
+.bg-bar-steel {
   background-color: rgb(69, 69, 69);
 }
 
-.bg_bar_fairy {
+.bg-bar-fairy {
   background-color: rgb(248, 126, 167);
 }
