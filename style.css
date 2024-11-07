@@ -92,13 +92,12 @@ h2 {
   border-style: solid;
   border-color: rgb(221, 221, 53);
   border-radius: 16px;
-
   position: relative;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 200ms ease;
 }
 
 .card-jump:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 .card-img, .card-img-showdown {
