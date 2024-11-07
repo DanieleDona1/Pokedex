@@ -386,6 +386,8 @@ h2 {
   background-color: aliceblue;
   padding: 18px 12px;
   border-radius: 16px;
+  min-height: 160px;
+  font-size: 1.25rem;
 }
 
 .main-characteristics-container {

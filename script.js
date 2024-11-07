@@ -247,13 +247,36 @@ function getUrlId(url) {
 }
 
 function showEvo() {
-  document.getElementById('mainCharacteristicsContainer').innerHTML = '';
-  document.getElementById('statsCharacteristics').innerHTML = '';
-  document.getElementById('evochainCharacteristics').innerHTML = '';
-  removeBorder();
+  console.log(evolutionChainId.length);
+  console.log(evolutionChainId);
 
-  for (let j = 0; j < evolutionChainId.length; j++) {
-    document.getElementById('evochainCharacteristics').innerHTML += evoTemplate(j);
+  // Prüfe, ob `evolutionChainId` ein Array ist und mindestens ein Element enthält
+  if (Array.isArray(evolutionChainId) && evolutionChainId.length > 0) {
+    // Konvertiere die Strings im Array in Zahlen
+    const numbers = evolutionChainId.map(Number);
+
+    // Überprüfe, ob die Zahlen aufsteigend sind
+    const isAscending = numbers.every((num, i) => i === 0 || num > numbers[i - 1]);
+
+    // Wenn die Zahlen aufsteigend sind, führe den Codeblock aus
+    if (isAscending) {
+      document.getElementById('mainCharacteristicsContainer').innerHTML = '';
+      document.getElementById('statsCharacteristics').innerHTML = '';
+      document.getElementById('evochainCharacteristics').innerHTML = '';
+      removeBorder();
+
+      let evoContent = '';
+      for (let j = 0; j < evolutionChainId.length; j++) {
+        evoContent += evoTemplate(j);
+      }
+      document.getElementById('evochainCharacteristics').innerHTML = evoContent;
+    } else {
+      document.getElementById('mainCharacteristicsContainer').innerHTML = '';
+      document.getElementById('statsCharacteristics').innerHTML = '';
+      document.getElementById('evochainCharacteristics').innerHTML = '';
+      removeBorder();
+      document.getElementById('evochainCharacteristics').innerHTML = 'Pokémon evolution chain is unknown.';
+    }
   }
 }
 
