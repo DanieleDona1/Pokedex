@@ -355,6 +355,8 @@ h2 {
   height: 100%;
   max-height: 645px;
   padding: 0 0 16px 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .detail-card img {
@@ -501,20 +503,20 @@ footer {
 }
 
 @media screen and (max-width: 450px) {
-  .detailInfoContainer {
+  .detail-info-container {
     padding: 0px 0px;
     margin-top: 8px;
   }
-  .evoImg {
+  .evo-img {
     width: 75px;
   }
 }
 
 @media screen and (max-width: 445px) {
-  .detailCard {
+  .detail-card {
     max-height: 650px;
   }
-  .viewCharacteristics {
+  .view-characteristics {
     padding: 8px 12px;
   }
 }
