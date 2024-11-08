@@ -137,6 +137,10 @@ h2 {
   opacity: 1;
 }
 
+.detail-card-img {
+  height: 270px;
+}
+
 .skeleton {
   width: 100%;
   margin: 10px auto;
@@ -349,7 +353,7 @@ h2 {
   width: 100%;
   max-width: 600px;
   height: 100%;
-  max-height: 608px;
+  max-height: 645px;
   padding: 0 0 16px 0;
 }
 

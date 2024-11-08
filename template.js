@@ -49,7 +49,7 @@ function generateDetailCardTemplate(i) {
         <div class="d-flex-c-c">
           <h2 class="id">#${pokemons[i].id} ${pokemonName}</h2>
         </div>
-        <div class="img-container"><img class="card-img" src="${pokemons[i].image}" alt="poke-image"/>
+        <div class="img-container"><img class="card-img detail-card-img" src="${pokemons[i].image}" alt="poke-image"/>
         <img onclick="closeDialog()" class="x-mark" id="xMark" src="./assets/img/xmark.svg" alt="xmark">
         <img onclick="previousPkm(${i - 1})" class="arrow-img-left" id="arrowImgLeft" src="./assets/img/leftArrow.svg" alt="left-arrow">
         <img onclick="nextPkm(${i + 1})" class="arrow-img-right" id="arrowImgRight" src="./assets/img/arrowRight.svg" alt="right-arrow">
