@@ -93,37 +93,36 @@ function mainCharacteristicsTemplate(i) {
 
 function statsCharacteristicsTemplate(i) {
   return /*html*/ `
-          <div class="progress-container">
+          <div class="progress-container d-flex-c-c">
                 <p>HP: ${pokemons[i].hp}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].hp}%"></div>
               </div>
-              <div class="progress-container">
+              <div class="progress-container d-flex-c-c">
                 <p>ATTACK: ${pokemons[i].attack}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].attack}%"></div>
               </div>
-              <div class="progress-container">
+              <div class="progress-container d-flex-c-c">
                 <p>DEFENSE: ${pokemons[i].defense}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].defense}%"></div>
               </div>
-              <div class="progress-container">
+              <div class="progress-container d-flex-c-c">
                 <p>SPECIAL ATTACK: ${pokemons[i].special_attack}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].special_attack}%"></div>
               </div>
-              <div class="progress-container">
+              <div class="progress-container d-flex-c-c">
                 <p>SPECIAL DEFENSE: ${pokemons[i].special_defense}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].special_defense}%"></div>
               </div>
-              <div class="progress-container">
+              <div class="progress-container d-flex-c-c">
                 <p>SPEED: ${pokemons[i].speed}</p>
                 <div class="progress-bar bg-bar-${pokemons[i].type}" style="width: ${pokemons[i].speed}%"></div>
-
         </div>
   `;
 }
 
 function evoTemplate(j) {
   return /*html*/ `
-    <div class="evo-container">
+    <div class="evo-container d-flex-c-c">
       <img onclick="openPokemonDetails(${[evolutionChainId[j] - 1]})" class="evo-img card-jump" src="${pokemons[evolutionChainId[j] - 1].image}"/>
       <span>${pokemons[evolutionChainId[j] - 1].name}</span>
     </div>

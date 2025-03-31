@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
   </head>
   <body onload="onloadfunc();">
-    <div class="load-container" id="loadContainer">
+    <div class="load-container d-flex-c-c" id="loadContainer">
       <img class="load-spinner" src="./assets/img/loadingSpinner.png" alt="Lade-Spinner" class="spinner" /><span>... loading</span>
       <div class="preloader-container">
         <div class="preloader-bar">
@@ -34,10 +34,13 @@
     <div class="max-width-1920">
       <main id="myPokedex"></main>
       <section id="searchResults" class="search-results"></section>
-      <section onclick="closeDialog()" id="detailViewDialog" class="dialog-bg d-none"></section>
+      <section onclick="closeDialog()" id="detailViewDialog" class="dialog-bg d-flex-c-c d-none"></section>
     </div>
     <footer id="footer">
       <button id="btnFooter" class="btn-footer" onclick="loadMore()">LOAD MORE</button>
+      <a href="./imprint.html">
+        Imprint
+      </a>
     </footer>
   </body>
 </html>

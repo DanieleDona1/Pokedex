@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(30, 50, 100);
+  display: flex;
+  justify-content: center;
+}
+section {
+  padding: 24px clamp(16px, 5vw, 200px);
+  font-size: clamp(16px, 5vw, 24px);
+  color: rgba(248, 245, 236, 1);
+  line-height: 1.4;
+  min-height: 80vh;
+  word-wrap: break-word;
+  max-width: 1080px;
+}
+a {
+  text-decoration: none;
+  color: rgba(248, 245, 236, 1);
+}
+
+section > div {
+  max-width: 1920px;
+}
+img{
+  margin-bottom: 16px;
+}
+
+  img:hover{
+    transform: scale(1.1);
+  }
+
+  h1 {
+    color: rgb(175, 222, 249);
+  }
+  h2 {
+    color: rgb(175, 222, 249);
+  }

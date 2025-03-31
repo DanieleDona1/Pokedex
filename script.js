@@ -5,9 +5,6 @@ let startLoadPokemons = 0;
 let loadBatchSize = 20;
 let progressValue = 0;
 
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/2.gif
-
 async function onloadfunc() {
   await loadAndShowPkm();
 }
@@ -28,7 +25,6 @@ async function loadAndShowPkm() {
   renderDescription(startLoadPokemons, endLoadValue);
   resetPreloaderValues();
   startLoadPokemons = endLoadValue;
-
 }
 
 async function loadPokemons(start, end) {
@@ -294,7 +290,7 @@ function nextPkm(i) {
     openPokemonDetails(i);
     loadPokemonEvoChain(i);
   } else {
-    console.log('load more Pokémon\'s');
+    console.log("load more Pokémon's");
   }
 }
 
