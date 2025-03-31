@@ -18,7 +18,6 @@ async function loadAndShowPkm() {
   let endLoadValue = startLoadPokemons + loadBatchSize;
 
   const pkmResponseAsJson = await loadPokemons(startLoadPokemons, endLoadValue);
-  console.log('pokemons json', pkmResponseAsJson);
   pokemons.push(...createJsonObject(pkmResponseAsJson));
   render();
   offLoadingSpinner();
